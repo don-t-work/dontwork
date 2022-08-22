@@ -19,12 +19,20 @@ body {
   box-sizing: border-box;
 }
 
+#menuTop {
+  position: relative;
+  background-color: rgb(12,12,12);
+  width: 100%;
+  height: 31px;
+  margin-top: -1px;
+  z-index: 1;
+}
 #menu {
   background-color: rgb(110,20,20);
   border-radius: 13px;
   height: 60px;
   width: 100%;
-  margin: 30px 0px 0px;
+
   text-align: left;
   position: relative;
   padding: 13px;
@@ -77,31 +85,67 @@ body {
   height: 470px;
   width: 100%;
   margin-top: -470px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   transform: translateY(-110px);
+  z-index: 0;
 }
-
 .textUIContainerSlide_ {
   animation: textUIContainerSlide 0.6s forwards ease-out 0s;
 }
 @keyframes textUIContainerSlide {
   0%   {transform: translateY(-110px)}
   18%  {margin-top: -470px;transform: translateY(0px)}
-  100% {margin-top: 20px;transform: translateY(0px)}
+  100% {margin-top: 17px;transform: translateY(0px)}
 }
 
 #textInput {
   display: inline-block;
   background-color: rgb(37,37,37);
   height: 100%;
-  width: 48.3%;
+  width: 49%;
   border-radius: 13px;
-  margin-right: 20px;
   background-image: url("../images/numworksDark.png");
   background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 0;
+  float: left;
+}
+
+#submitButton {
+  position: absolute;
+  display: inline-block;
+  background-color: rgb(60,60,60);
+  width: 49%;
+  height: 48%;
+  border-radius: 13px;
+  margin-left: 2%;
+  transform: translateX(800px);
+}
+.submitButtonSlide_ {
+  animation: submitButtonSlide 0.35s forwards 0.7s;
+}
+@keyframes submitButtonSlide {
+  from {transform: translateX(800px)}
+  to {transform: translateX(0px)}
+}
+
+#submitInfos {
+  position: absolute;
+  display: inline-block;
+  background-color: rgb(60,60,60);
+  width: 49%;
+  height: 48%;
+  border-radius: 13px;
+  margin-left: 2%;
+  bottom: 0;
+  transform: translateX(800px);
+}
+.submitInfosSlide_ {
+  animation: submitInfosSlide 0.35s forwards 0.6s;
+}
+@keyframes submitInfosSlide {
+  from {transform: translateX(800px)}
+  to {transform: translateX(0px)}
 }
 
 #textBox {
