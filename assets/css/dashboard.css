@@ -2,6 +2,7 @@ html {height: 100%}
 body {
   background-color: rgb(12,12,12);
   text-align: center;
+  overflow: hidden;
   padding: 0px;
   margin: 0px;
   height: 100%;
@@ -27,7 +28,8 @@ body {
   text-align: left;
   position: relative;
   padding: 13px;
-  box-sizing: border-box
+  box-sizing: border-box;
+  z-index: 1;
 }
 #title {
   position: absolute;
@@ -65,10 +67,41 @@ body {
 #subContainer {
   outline: solid 0px green;
   width: 100%;
-  height: 100%;
-  padding-top: 20px;
+  height: 80%;
   position: relative;
-  min-height: 750px;
+  min-height: 500px;
+  text-align: left;
+}
+
+#textUIContainer {
+  height: 470px;
+  width: 100%;
+  margin-top: -470px;
+  margin-bottom: 20px;
+  transform: translateY(-110px);
+}
+
+.textUIContainerSlide_ {
+  animation: textUIContainerSlide 0.6s forwards ease-out 0s;
+}
+@keyframes textUIContainerSlide {
+  0%   {transform: translateY(-110px)}
+  18%  {margin-top: -470px;transform: translateY(0px)}
+  100% {margin-top: 20px;transform: translateY(0px)}
+}
+
+#textInput {
+  display: inline-block;
+  background-color: rgb(37,37,37);
+  height: 100%;
+  width: 48.3%;
+  border-radius: 13px;
+  margin-right: 20px;
+  background-image: url("../images/numworksDark.png");
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0;
 }
 
 #textBox {
@@ -81,8 +114,15 @@ body {
   box-sizing: border-box;
   color: rgba(200,210,210);
 }
-
 #textBox h3 {
   color: white;
   margin-top: 0;
+}
+.textBoxSlide_ {
+  animation: textBoxSlide 0.6s forwards ease-in 0s;
+}
+
+@keyframes textBoxSlide {
+  from {opacity: 1}
+  to {opacity: 0}
 }
