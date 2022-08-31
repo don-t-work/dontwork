@@ -83,7 +83,9 @@ body {
 
 #textUIContainer {
   width: 60vw;
-  height: 29vw;
+  height: 29.5vw;
+  min-width: 60em;
+  min-height: 29.5em;
   margin-top: -470px;
   margin-bottom: 15px;
   transform: translateY(-110px);
@@ -119,8 +121,8 @@ body {
   resize: none;
   border: none;
   width: 53.4%;
-  height: 31.2%;
-  bottom: 43.5%;
+  height: 30.7%;
+  bottom: 43.2%;
   transform: translateX(-50%);
   background-color: rgb(0,4,0);
   color: rgb(255,255,255);
