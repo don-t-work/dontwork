@@ -1,6 +1,51 @@
+:root, [data-theme="light"] {
+    --bg-color: rgb(243,243,243);
+    --menu-color: rgb(255,110,110);
+    --text-color: rgb(55,45,45);
+    --start-bg-color: rgb(235,145,145);
+    --start-shadow-color: rgb(193,103,103);
+    --textInput-bg-color: rgb(218,218,218);
+    --textInputArea-bg-color: rgb(255,251,255);
+    --textInputArea-text-color: rgb(0,0,0);
+    --numworksImg: url("../images/numworksLight.png");
+    --submitButton-bg-color: rgb(195,195,195);
+    --submitButton-text-color: rgb(55,45,45);
+    --submitButton-bg-color-green: rgb(120,220,120);
+    --submitButton-text-color-green: rgb(45,75,45);
+    --submitInfos-bg-color: rgb(218,218,218);
+    --textBox-bg-color: rgb(60,60,60);
+    --textBox-text-color: rgb(200,210,210);
+    --A: url("../images/A2.jpg");
+    --B: url("../images/B2.jpg");
+    --C: url("../images/C2.jpg");
+}
+
+[data-theme="dark"] {
+    --bg-color: rgb(12,12,12);
+    --menu-color: rgb(110,20,20);
+    --text-color: rgb(200,210,210);
+    --start-bg-color: rgb(235,145,145);
+    --start-shadow-color: rgb(193,103,103);
+    --textInput-bg-color: rgb(37,37,37);
+    --textInputArea-bg-color: rgb(0,4,0);
+    --textInputArea-text-color: rgb(255,255,255);
+    --numworksImg: url("../images/numworksDark.png");
+    --submitButton-bg-color: rgb(60,60,60);
+    --submitButton-text-color: rgb(200,210,210);
+    --submitButton-bg-color-green: rgb(20,110,20);
+    --submitButton-text-color-green: rgb(170,210,180);
+    --submitInfos-bg-color: rgb(37,37,37);
+    --textBox-bg-color: rgb(60,60,60);
+    --textBox-text-color: rgb(200,210,210);
+    --A: url("../pics/A1.jpg");
+    --B: url("../pics/B1.jpg");
+    --C: url("../pics/C1.jpg");
+}
+
+
 html {height: 100%}
 body {
-  background-color: rgb(12,12,12);
+  background-color: var(--bg-color);
   text-align: center;
   overflow: hidden;
   padding: 0px;
@@ -21,14 +66,14 @@ body {
 
 #menuTop {
   position: relative;
-  background-color: rgb(12,12,12);
+  background-color: var(--bg-color);
   width: 100%;
   height: 31px;
   margin-top: -1px;
   z-index: 1;
 }
 #menu {
-  background-color: rgb(110,20,20);
+  background-color: var(--menu-color);
   border-radius: 13px;
   height: 60px;
   width: 100%;
@@ -53,7 +98,7 @@ body {
 #start {
   position: absolute;
   color:black;
-  background-color: rgba(235,145,145,1);
+  background-color: var(--start-bg-color);
   border-radius: 10px;
   width: 6.75em;
   height: calc(100% - 26px);
@@ -63,11 +108,11 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0px 4px 0px rgba(193,103,103,1);
+  box-shadow: 0px 4px 0px var(--start-shadow-color);
   transition: box-shadow 0.15s ease-out, top 0.15s ease-out;
 }
 #start:active {
-  box-shadow: 0px 0px 0px rgba(193,103,103,1);
+  box-shadow: 0px 0px 0px var(--start-shadow-color);
   top: 16px;
 }
 
@@ -84,7 +129,7 @@ body {
   box-sizing: border-box;
   width: 100%;
   height: 37em;
-  margin-top: -470px;
+  margin-top: -37em;
   margin-bottom: 15px;
   transform: translateY(-110px);
   z-index: 0;
@@ -94,18 +139,18 @@ body {
 }
 @keyframes textUIContainerSlide {
   0%   {transform: translateY(-110px)}
-  18%  {margin-top: -470px;transform: translateY(0px)}
+  18%  {margin-top: -37em;transform: translateY(0px)}
   100% {margin-top: 17px;transform: translateY(0px)}
 }
 
 #textInput {
   position: relative;
   display: inline-block;
-  background-color: rgb(37,37,37);
+  background-color: var(--textInput-bg-color);
   height: 100%;
   width: calc(50% - 8.5px);
   border-radius: 13px;
-  background-image: url("../images/numworksDark.png");
+  background-image: var(--numworksImg);
   background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
@@ -123,8 +168,8 @@ body {
   height: 30.2%;
   bottom: 43.2%;
   transform: translateX(-50%);
-  background-color: rgb(0,4,0);
-  color: rgb(255,255,255);
+  background-color: var(--textInputArea-bg-color);
+  color: var(--textInputArea-text-color);
   box-sizing: border-box;
 }
 #textInputArea:focus {
@@ -134,14 +179,14 @@ body {
 #submitButton {
   position: absolute;
   display: inline-block;
-  background-color: rgb(60,60,60);
+  background-color: var(--submitButton-bg-color);
   width: calc(50% - 8.5px);
-  height: 48%;
+  height: calc(50% - 8.5px);
   border-radius: 13px;
   margin-left: 17px;
-  transform: translateX(800px);
+  transform: translateX(1000px);
   text-align: center;
-  color: rgb(200,210,210);
+  color: var(--submitButton-text-color);
   box-sizing: border-box;
   transition: opacity 0.25s;
 }
@@ -149,7 +194,7 @@ body {
   animation: submitButtonSlide 0.35s forwards 0.7s;
 }
 @keyframes submitButtonSlide {
-  from {transform: translateX(800px)}
+  from {transform: translateX(1000px)}
   to {transform: translateX(0px)}
 }
 #submitButton:hover {
@@ -165,31 +210,31 @@ body {
 #submitInfos {
   position: absolute;
   display: inline-block;
-  background-color: rgb(37,37,37);
+  background-color: var(--submitInfos-bg-color);
   width: calc(50% - 8.5px);
-  height: 48%;
+  height: calc(50% - 8.5px);
   border-radius: 13px;
   margin-left: 17px;
   bottom: 0;
-  transform: translateX(800px);
+  transform: translateX(1000px);
 }
 .submitInfosSlide_ {
   animation: submitInfosSlide 0.35s forwards 0.6s;
 }
 @keyframes submitInfosSlide {
-  from {transform: translateX(800px)}
+  from {transform: translateX(1000px)}
   to {transform: translateX(0px)}
 }
 
 #textBox {
-  background-color: rgba(60,60,60,1);
+  background-color: var(--textBox-bg-color);
   border-radius: 13px;
   text-align: left;
   width: 100%;
   height: 100%;
   padding: 1.8em;
   box-sizing: border-box;
-  color: rgba(200,210,210);
+  color: var(--textBox-text-color);
 }
 #textBox h3 {
   color: white;

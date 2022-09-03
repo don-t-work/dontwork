@@ -5,12 +5,31 @@
     <title>Don't Work</title>
     <link rel="stylesheet" href="assets/css/dashboard.css">
     <link href="http://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">
       function start() {
         document.getElementById("textBox").className = "textBoxSlide_";
         document.getElementById("textUIContainer").className = "textUIContainerSlide_";
         document.getElementById("submitButton").className = "submitButtonSlide_";
         document.getElementById("submitInfos").className = "submitInfosSlide_";
+      }
+
+      $(document).ready(function(){
+        $("#textInputArea").keyup(function(){
+          var cssVars = getComputedStyle(document.body);
+          if($(this).val() == "") {
+            $("#submitButton").css("backgroundColor",cssVars.getPropertyValue("--submitButton-bg-color"));
+            $("#submitButton").css("color",cssVars.getPropertyValue("--submitButton-text-color"));
+          } else {
+            $("#submitButton").css("backgroundColor",cssVars.getPropertyValue("--submitButton-bg-color-green"));
+            $("#submitButton").css("color",cssVars.getPropertyValue("--submitButton-text-color-green"));
+          }
+        });
+      });
+
+      var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      if (storedTheme) {
+          document.documentElement.setAttribute('data-theme', storedTheme);
       }
     </script>
   </head>
