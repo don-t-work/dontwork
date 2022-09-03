@@ -7,11 +7,22 @@
     <link href="http://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">
+      var inputState = false;
       function start() {
-        document.getElementById("textBox").className = "textBoxSlide_";
-        document.getElementById("textUIContainer").className = "textUIContainerSlide_";
-        document.getElementById("submitButton").className = "submitButtonSlide_";
-        document.getElementById("submitInfos").className = "submitInfosSlide_";
+        if (inputState === false) {
+          document.getElementById("textBox").className = "textBoxSlide_";
+          document.getElementById("textUIContainer").className = "textUIContainerSlide_";
+
+          document.getElementById("submitButton").style.display = "inline-block";
+          document.getElementById("submitInfos").style.display = "inline-block";
+          document.getElementById("submitButton").className = "submitButtonSlide_";
+          document.getElementById("submitInfos").className = "submitInfosSlide_";
+          setTimeout(function() {$('#start').html("<p>réinitialiser</p>");}, 400)
+          inputState = true;
+        } else {
+          $("#textInputArea").val("");
+          $("#textInputArea").keyup();
+        }
       }
 
       $(document).ready(function(){
@@ -20,9 +31,13 @@
           if($(this).val() == "") {
             $("#submitButton").css("backgroundColor",cssVars.getPropertyValue("--submitButton-bg-color"));
             $("#submitButton").css("color",cssVars.getPropertyValue("--submitButton-text-color"));
+            $("#start").css("backgroundColor",cssVars.getPropertyValue("--start-bg-color"));
+            $("#start").css("box-shadow",cssVars.getPropertyValue("--start-shadow-color"));
           } else {
-            $("#submitButton").css("backgroundColor",cssVars.getPropertyValue("--submitButton-bg-color-green"));
-            $("#submitButton").css("color",cssVars.getPropertyValue("--submitButton-text-color-green"));
+            $("#submitButton").css("backgroundColor",cssVars.getPropertyValue("--submitButton-bg-color-validate"));
+            $("#submitButton").css("color",cssVars.getPropertyValue("--submitButton-text-color-validate"));
+            $("#start").css("backgroundColor",cssVars.getPropertyValue("--start-bg-color-reset"));
+            $("#start").css("box-shadow","0px 4px 0px "+cssVars.getPropertyValue("--start-shadow-color-reset"));
           }
         });
       });
