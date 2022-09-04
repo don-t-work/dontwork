@@ -229,6 +229,39 @@ body {
   from {transform: translateX(1000px)}
   to {transform: translateX(0px)}
 }
+
+#fileName {
+  width: 100%;
+  height: auto;
+  margin-bottom: 50px;
+}
+#fileNamePinv {
+  display: inline-block;
+  margin: 0px 5px 0px 0px;
+  font-weight: bold;
+}
+#fileNameTextArea {
+  display: inline-block;
+  background-color: var(--textInputArea-bg-color);
+  color: rgb(255,100,100);
+  resize: none;
+  border: none;
+  transform: translateY(22%);
+  width: 24ch;
+  height: 2.3ch;
+  margin: 0px;
+  padding-bottom: 0px;
+}
+#fileNameTextArea:focus {
+  outline: none !important;
+}
+
+#fileNamePext {
+  display: inline-block;
+  color: rgb(255,100,100);
+  margin:0;
+}
+
 #infos {
   position: relative;
   color: var(--text-color);

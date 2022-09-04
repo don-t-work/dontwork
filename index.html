@@ -7,8 +7,29 @@
     <link href="http://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">
+      function download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+      }
+
+      function hasNumber(myString) {
+        return /\d/.test(myString);
+      }
+
       var inputState = false;
       function start() {
+        navigator.usb.getDevices().then(devices => {
+          devices.forEach(device => {
+            console.log(device.productName);      // "Arduino Micro"
+            console.log(device.manufacturerName); // "Arduino LLC"
+          });
+        })
+
         if (inputState === false) {
           document.getElementById("textBox").className = "textBoxSlide_";
           document.getElementById("textUIContainer").className = "textUIContainerSlide_";
@@ -17,11 +38,15 @@
           document.getElementById("submitInfos").style.display = "inline-block";
           document.getElementById("submitButton").className = "submitButtonSlide_";
           document.getElementById("submitInfos").className = "submitInfosSlide_";
-          setTimeout(function() {$('#start').html("<p>réinitialiser</p>");}, 400)
+          setTimeout(function() {$('#start').html("<p>enregistrer</p>");}, 400)
           inputState = true;
         } else {
-          $("#textInputArea").val("");
-          $("#textInputArea").keyup();
+          var fileName = document.getElementById("fileNameTextArea").value;
+          var fileContent = document.getElementById("textInputArea").value;
+
+          if (/^[\w-]+$/.test(fileName)) {
+            download(fileName+".txt",fileContent);
+          }
         }
       }
 
@@ -65,6 +90,11 @@
             </div>
             <div id="submitInfos">
               <div id="infos">
+                <div id="fileName">
+                  <p id="fileNamePinv">Nom du fichier : </p>
+                  <textarea id="fileNameTextArea" name="name" placeholder="FileName" maxlength=24 autocorrect="off"></textarea>
+                  <p id="fileNamePext">.py</p>
+                </div>
                 <p style="margin:0;font-size:1.4em;font-weight: bold;">⚠️ important ⚠️</p>
                 <p style="margin:1.5% 0;">Afin de profiter d'une plus grande surface d'affichage et d'une meilleure lisibilité, veuillez regler la taille de police de votre calculatrice sur "petite"</p>
                 <p style="margin:0;font-weight: bold;">Paramètres > Police Python > Petite</p>
