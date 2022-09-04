@@ -44,6 +44,11 @@
     --C: url("../images/C1.jpg");
 }
 
+@font-face {
+    font-family: 'Menlo';
+    src: url('/../fonts/MenloREgular.ttf');
+}
+
 html {
   height: 100%;
   width: 100%;
@@ -96,7 +101,7 @@ body {
   color: black;
   align-items: center;
   text-decoration: line-through;
-  font-family: Menlo;
+  font-family: "Menlo";
 }
 #start {
   position: absolute;
