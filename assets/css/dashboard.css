@@ -44,6 +44,12 @@
     --C: url("../images/C1.jpg");
 }
 
+@font-face {
+    font-family: 'Menlo';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Menlo'), url('https://fonts.cdnfonts.com/s/13494/Menlo-Regular.woff') format('woff');
+}
 
 html {
   height: 100%;
