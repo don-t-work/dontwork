@@ -23,17 +23,9 @@
 
       var inputState = false;
       function start() {
-        navigator.usb.getDevices().then(devices => {
-          devices.forEach(device => {
-            console.log(device.productName);      // "Arduino Micro"
-            console.log(device.manufacturerName); // "Arduino LLC"
-          });
-        })
-
         if (inputState === false) {
           document.getElementById("textBox").className = "textBoxSlide_";
           document.getElementById("textUIContainer").className = "textUIContainerSlide_";
-
           document.getElementById("submitButton").style.display = "inline-block";
           document.getElementById("submitInfos").style.display = "inline-block";
           document.getElementById("submitButton").className = "submitButtonSlide_";
@@ -50,16 +42,24 @@
         }
       }
 
+      function updateSubmitButton() {
+        var cssVars = getComputedStyle(document.body);
+        if($("#textInputArea").val() == "" || $("#fileNameTextArea").val() == "") {
+          $("#submitButton").css("backgroundColor",cssVars.getPropertyValue("--submitButton-bg-color"));
+          $("#submitButton").css("color",cssVars.getPropertyValue("--submitButton-text-color"));
+
+        } else {
+          $("#submitButton").css("backgroundColor",cssVars.getPropertyValue("--submitButton-bg-color-validate"));
+          $("#submitButton").css("color",cssVars.getPropertyValue("--submitButton-text-color-validate"));
+        }
+      }
+
       $(document).ready(function(){
         $("#textInputArea").keyup(function(){
-          var cssVars = getComputedStyle(document.body);
-          if($(this).val() == "") {
-            $("#submitButton").css("backgroundColor",cssVars.getPropertyValue("--submitButton-bg-color"));
-            $("#submitButton").css("color",cssVars.getPropertyValue("--submitButton-text-color"));
-          } else {
-            $("#submitButton").css("backgroundColor",cssVars.getPropertyValue("--submitButton-bg-color-validate"));
-            $("#submitButton").css("color",cssVars.getPropertyValue("--submitButton-text-color-validate"));
-          }
+          updateSubmitButton();
+        });
+        $("#fileNameTextArea").keyup(function(){
+          updateSubmitButton();
         });
       });
 
