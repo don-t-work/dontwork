@@ -47,7 +47,6 @@
         if($("#textInputArea").val() == "" || $("#fileNameTextArea").val() == "") {
           $("#submitButton").css("backgroundColor",cssVars.getPropertyValue("--submitButton-bg-color"));
           $("#submitButton").css("color",cssVars.getPropertyValue("--submitButton-text-color"));
-
         } else {
           $("#submitButton").css("backgroundColor",cssVars.getPropertyValue("--submitButton-bg-color-validate"));
           $("#submitButton").css("color",cssVars.getPropertyValue("--submitButton-text-color-validate"));
@@ -65,8 +64,13 @@
 
       var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
       if (storedTheme) {
-          document.documentElement.setAttribute('data-theme', storedTheme);
+        document.documentElement.setAttribute('data-theme', storedTheme);
       }
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute('data-theme', storedTheme);
+        updateSubmitButton();
+      });
     </script>
   </head>
   <body>
