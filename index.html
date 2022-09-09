@@ -25,8 +25,28 @@
         document.body.removeChild(element);
       }
 
-      function hasNumber(myString) {
-        return /\d/.test(myString);
+      function exportTxt() {
+        var fileName = document.getElementById("fileNameTextArea").value;
+        var fileContent = document.getElementById("textInputArea").value;
+
+        if (fileName.length === 0 || fileContent.length === 0) {
+          if (fileName.length === 0) {
+            var cssVars = getComputedStyle(document.body);
+            $("#fileNameTextArea").css("backgroundColor", "rgb(200,50,50)");
+            setTimeout(function() {$("#fileNameTextArea").css("backgroundColor", cssVars.getPropertyValue("--TextArea-bg-color"))}, 200);
+          } else if (!/^[\w-]+$/.test(fileName)) {
+            $("#fileNameInstructions").css("animation-play-state", "running");
+          }
+          if (fileContent.length === 0) {
+            var cssVars = getComputedStyle(document.body);
+            $("#textInputArea").css("backgroundColor", "rgb(200,50,50)");
+            setTimeout(function() {$("#textInputArea").css("backgroundColor", cssVars.getPropertyValue("--TextArea-bg-color"))}, 200);
+          }
+        } else if (/^[\w-]+$/.test(fileName)) {
+          download(fileName+".txt",fileContent);
+        } else {
+          $("#fileNameInstructions").css("animation-play-state", "running");
+        }
       }
 
       var inputState = false;
@@ -41,12 +61,7 @@
           setTimeout(function() {$('#start').html("<p>enregistrer</p>");}, 400)
           setTimeout(function() {inputState = true;}, 400)
         } else {
-          var fileName = document.getElementById("fileNameTextArea").value;
-          var fileContent = document.getElementById("textInputArea").value;
-
-          if (/^[\w-]+$/.test(fileName)) {
-            download(fileName+".txt",fileContent);
-          }
+          exportTxt();
         }
       }
 
@@ -103,6 +118,7 @@
                   <textarea id="fileNameTextArea" name="name" placeholder="FileName" maxlength=24 autocorrect="off"></textarea>
                   <p id="fileNamePext">.py</p>
                 </div>
+                <p id="fileNameInstructions">use only letters, numbers and -</p>
                 <p style="margin:0;font-size:1.4em;font-weight: bold;">⚠️ important ⚠️</p>
                 <p style="margin:1.5% 0;">Afin de profiter d'une plus grande surface d'affichage et d'une meilleure lisibilité, veuillez regler la taille de police de votre calculatrice sur "petite"</p>
                 <p style="margin:0;font-weight: bold;">Paramètres > Police Python > Petite</p>
