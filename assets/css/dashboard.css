@@ -177,14 +177,14 @@ body {
   resize: none;
   overflow: hidden;
   border: none;
-  width: 43ch;
+  width: 43.4ch;
   height: 30.7%;
   bottom: 43.2%;
   transform: translateX(-50%);
   background-color: var(--textInputArea-bg-color);
   color: var(--textInputArea-text-color);
   font-family: Arial;
-  font-size: 13.2px;
+  font-size: 13.1px;
   box-sizing: border-box;
 }
 #textInputArea:focus {
