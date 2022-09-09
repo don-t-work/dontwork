@@ -52,6 +52,8 @@
 html {
   height: 100%;
   width: 100%;
+  font-size: 16px;
+  font-family: Arial;
 }
 body {
   background-color: var(--bg-color);
@@ -60,8 +62,7 @@ body {
   padding: 0px;
   margin: 0px;
   height: 100%;
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  font-size: 16px;
+  font-family: Arial;
 }
 
 #mainContainer {
@@ -137,7 +138,7 @@ body {
 #textUIContainer {
   box-sizing: border-box;
   width: 100%;
-  height: 592px;
+  height: 66.8ch;
   margin-top: -592px;
   margin-bottom: 15px;
   transform: translateY(-110px);
@@ -148,7 +149,7 @@ body {
 }
 @keyframes textUIContainerSlide {
   0%   {transform: translateY(-110px)}
-  18%  {margin-top: -592px;transform: translateY(0px)}
+  18%  {margin-top: -66.8ch;transform: translateY(0px)}
   100% {margin-top: 17px;transform: translateY(0px)}
 }
 
@@ -156,9 +157,10 @@ body {
   position: relative;
   display: inline-block;
   background-color: var(--textInput-bg-color);
-  height: 100%;
+  font-family: Arial;
+  height: 66.8ch;
   /*width: calc(50% - 8.5px);*/
-  width: 68.9ch;
+  width: 66.8ch;
   border-radius: 13px;
   background-image: var(--numworksImg);
   background-position: bottom;
@@ -175,7 +177,7 @@ body {
   overflow: hidden;
   border: none;
   width: 43ch;
-  height: 30.9%;
+  height: 30.7%;
   bottom: 43.2%;
   transform: translateX(-50%);
   background-color: var(--textInputArea-bg-color);
