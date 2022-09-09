@@ -154,11 +154,11 @@ body {
 }
 
 #textInput {
-  font-family: Arial;
   position: relative;
   display: inline-block;
   background-color: var(--textInput-bg-color);
   font-family: Arial;
+  font-size: 16px;
   height: 66.8ch;
   /*width: calc(50% - 8.5px);*/
   width: 66.8ch;
@@ -172,7 +172,6 @@ body {
 }
 
 #textInputArea {
-  font-family: Arial;
   position: absolute;
   display: inline-block;
   resize: none;
@@ -184,6 +183,8 @@ body {
   transform: translateX(-50%);
   background-color: var(--textInputArea-bg-color);
   color: var(--textInputArea-text-color);
+  font-family: Arial;
+  font-size: 16px;
   box-sizing: border-box;
 }
 #textInputArea:focus {
