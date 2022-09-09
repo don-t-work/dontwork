@@ -154,6 +154,7 @@ body {
 }
 
 #textInput {
+  font-family: Arial;
   position: relative;
   display: inline-block;
   background-color: var(--textInput-bg-color);
@@ -171,6 +172,7 @@ body {
 }
 
 #textInputArea {
+  font-family: Arial;
   position: absolute;
   display: inline-block;
   resize: none;
@@ -192,7 +194,7 @@ body {
   position: absolute;
   display: none;
   background-color: var(--submitButton-bg-color);
-  width: calc(100% - 68.9ch - 17px);
+  width: calc(100% - 66.8ch - 17px);
   height: calc(50% - 8.5px);
   border-radius: 13px;
   margin-left: 17px;
@@ -223,7 +225,7 @@ body {
   position: absolute;
   display: none;
   background-color: var(--submitInfos-bg-color);
-  width: calc(100% - 68.9ch - 17px);
+  width: calc(100% - 66.8ch - 17px);
   height: calc(50% - 8.5px);
   border-radius: 13px;
   margin-left: 17px;
