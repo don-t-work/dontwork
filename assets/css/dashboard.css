@@ -184,7 +184,7 @@ body {
   background-color: var(--textInputArea-bg-color);
   color: var(--textInputArea-text-color);
   font-family: Arial;
-  font-size: 16px;
+  font-size: 13.2px;
   box-sizing: border-box;
 }
 #textInputArea:focus {
