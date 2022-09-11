@@ -14,6 +14,7 @@
     --submitButton-text-color: rgb(55,45,45);
     --submitButton-bg-color-validate: rgb(120,220,120);
     --submitButton-text-color-validate: rgb(45,75,45);
+    --fileName-text-color: rgb(255,100,100);
     --submitInfos-bg-color: rgb(218,218,218);
     --textBox-bg-color: rgb(190,190,190);
     --A: url("../images/A2.jpg");
@@ -37,6 +38,7 @@
     --submitButton-text-color: rgb(200,210,210);
     --submitButton-bg-color-validate: rgb(20,110,20);
     --submitButton-text-color-validate: rgb(170,210,180);
+    --fileName-text-color: rgb(255,100,100);
     --submitInfos-bg-color: rgb(37,37,37);
     --textBox-bg-color: rgb(60,60,60);
     --A: url("../images/A1.jpg");
@@ -127,7 +129,6 @@ body {
 }
 
 #subContainer {
-  outline: solid 0px green;
   width: 100%;
   height: 80%;
   position: relative;
@@ -160,7 +161,6 @@ body {
   font-family: Arial;
   font-size: 16px;
   height: 66.8ch;
-  /*width: calc(50% - 8.5px);*/
   width: 66.8ch;
   border-radius: 13px;
   background-image: var(--numworksImg);
@@ -177,15 +177,16 @@ body {
   resize: none;
   overflow: hidden;
   border: none;
-  width: 43ch;
+  width: 43.4ch;
   height: 30.7%;
   bottom: 43.2%;
   transform: translateX(-50%);
   background-color: var(--textInputArea-bg-color);
   color: var(--textInputArea-text-color);
   font-family: Arial;
-  font-size: 13.2px;
+  font-size: 13.1px;
   box-sizing: border-box;
+  transition: background-color .2s ease-in-out;
 }
 #textInputArea:focus {
   outline: none !important;
@@ -220,6 +221,7 @@ body {
   position: relative;
   top: calc(50% - 8px);
   transform: translateY(-50%);
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 
 #submitInfos {
@@ -244,7 +246,6 @@ body {
 #fileName {
   width: 100%;
   height: auto;
-  margin-bottom: 50px;
 }
 #fileNamePinv {
   display: inline-block;
@@ -254,7 +255,7 @@ body {
 #fileNameTextArea {
   display: inline-block;
   background-color: var(--textInputArea-bg-color);
-  color: rgb(255,100,100);
+  color: var(--fileName-text-color);
   resize: none;
   border: none;
   transform: translateY(22%);
@@ -262,6 +263,7 @@ body {
   height: 2.3ch;
   margin: 0px;
   padding-bottom: 0px;
+  transition: background-color .2s ease-in-out;
 }
 #fileNameTextArea:focus {
   outline: none !important;
@@ -269,8 +271,24 @@ body {
 
 #fileNamePext {
   display: inline-block;
-  color: rgb(255,100,100);
+  color: var(--fileName-text-color);
   margin:0;
+}
+
+#fileNameInstructions {
+  margin-bottom: 15px;
+  font-size: 90%;
+  opacity: 0;
+  color: var(--fileName-text-color);
+  animation-name: fileNameInstructionsSlide;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-play-state: paused;
+}
+@keyframes fileNameInstructionsSlide {
+  from {opacity: 0; margin-bottom:15px}
+  to {opacity: 0.7; margin-bottom:30px}
 }
 
 #infos {
@@ -286,17 +304,18 @@ body {
   border-radius: 13px;
   text-align: left;
   width: 100%;
-  height: 592px;
+  height: 65%;
   padding: 1.8em;
   box-sizing: border-box;
   color: var(--text-color);
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 #textBox h3 {
   color: white;
   margin-top: 0;
 }
 .textBoxSlide_ {
-  animation: textBoxSlide 0.6s forwards ease-in 0s;
+  animation: textBoxSlide 0.5s forwards ease-in 0s;
 }
 
 @keyframes textBoxSlide {
