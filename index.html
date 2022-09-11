@@ -25,13 +25,10 @@
         document.body.removeChild(element);
       }
 
-<<<<<<< HEAD
       function testFileName(str) {
         return /^[\w-]+$/.test(str);
       }
 
-=======
->>>>>>> 84bd238cf1e40e6050eeed924242e452997a3727
       function exportTxt() {
         var fileName = document.getElementById("fileNameTextArea").value;
         var fileContent = document.getElementById("textInputArea").value;
@@ -49,11 +46,7 @@
             $("#textInputArea").css("backgroundColor", "rgb(200,50,50)");
             setTimeout(function() {$("#textInputArea").css("backgroundColor", cssVars.getPropertyValue("--TextArea-bg-color"))}, 200);
           }
-<<<<<<< HEAD
-        } else if (testFileName(fileName)) {
-=======
         } else if (/^[\w-]+$/.test(fileName)) {
->>>>>>> 84bd238cf1e40e6050eeed924242e452997a3727
           download(fileName+".txt",fileContent);
         } else {
           $("#fileNameInstructions").css("animation-play-state", "running");
