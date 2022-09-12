@@ -1,12 +1,57 @@
 html {
-  height: 100%;
-  width: 100%;
+  margin:0;
+  padding:0;
+  overflow-y: hidden;
 }
-body {
+
+.wrapper {
+  perspective: 2px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin:0;
+  padding:0;
+}
+
+.section {
+  margin:0;
+  padding:0;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+.parallax::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(-1px) scale(1.7);
+  background-size: 100%;
+  z-index: -1;
+}
+
+#hey {
+transform: translateZ(-.5px) translateX(-73px) scale(2.2);
+}
+#mobile {
+transform: translateZ(0px) scale(1.7);
+}
+#user {
+transform: translateZ(.5px) translateX(30px)  translateY(-.5px) scale(1.3);
+}
+
+.static {
+  background-color: red;
+}
+.bg::after {
   background-image: url("../images/B2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
-  width: 100%;
 }
