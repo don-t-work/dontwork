@@ -9,12 +9,13 @@
     --textInput-bg-color: rgb(218,218,218);
     --textInputArea-bg-color: rgb(255,251,255);
     --textInputArea-text-color: rgb(0,0,0);
+    --textInputArea-bg-color-error: rgb(235,135,135);
     --numworksImg: url("../images/numworksLight.png");
     --submitButton-bg-color: rgb(195,195,195);
     --submitButton-text-color: rgb(55,45,45);
     --submitButton-bg-color-validate: rgb(120,220,120);
     --submitButton-text-color-validate: rgb(45,75,45);
-    --fileName-text-color: rgb(255,100,100);
+    --fileName-text-color: rgb(230,70,70);
     --submitInfos-bg-color: rgb(218,218,218);
     --textBox-bg-color: rgb(190,190,190);
     --A: url("../images/A2.jpg");
@@ -33,6 +34,7 @@
     --textInput-bg-color: rgb(37,37,37);
     --textInputArea-bg-color: rgb(0,4,0);
     --textInputArea-text-color: rgb(255,255,255);
+    --textInputArea-bg-color-error: rgb(140,30,30);
     --numworksImg: url("../images/numworksDark.png");
     --submitButton-bg-color: rgb(60,60,60);
     --submitButton-text-color: rgb(200,210,210);
@@ -73,6 +75,7 @@ body {
   height: 99%;
   min-width: 1010px;
   min-height: 900px;
+  max-width: 1300px;
   box-sizing: border-box;
 }
 
